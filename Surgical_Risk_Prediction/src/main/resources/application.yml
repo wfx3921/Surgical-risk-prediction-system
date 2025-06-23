@@ -1,0 +1,29 @@
+server:
+  port: 9090
+spring:
+  application:
+    #应用名称，此属性有无均可
+    name: Surgical_Risk_Prediction
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/surgical_risk_prediction?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: oucseib519
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/Surgery
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy # 自动转驼峰
+      authentication-database: Surgery
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+
